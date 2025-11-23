@@ -21,6 +21,7 @@
   "scripts": {
     "start": "react-scripts start -p 5000",
     "build": "react-scripts build",
+    "serve": "serve -s build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -43,6 +44,7 @@
     ]
   },
   "devDependencies": {
-    "@types/node": "^24.10.1"
+    "@types/node": "^24.10.1",
+    "serve": "^14.2.5"
   }
 }
