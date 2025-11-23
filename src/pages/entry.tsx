@@ -25,32 +25,40 @@ const EntryPoint = () => {
     }
   }
   const handleModalClose = () => setResponse(null)
+
   return (
-    <div>
-      <div>Hey there, ask me anything!</div>
-      <br />
-      <Input
-        className="large-input"
-        value={value}
-        onChange={(e) => setValue(e.target.value)}
-        onPressEnter={handleEnter}
-        placeholder="Type your question..."
-        size="large"
-      />
-      {loading && (
-        <div style={{ marginTop: 50 }}>
-          <Spin /> <span>Deep thinking...</span>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+        <div>
+          <div>Hey there, ask me anything!</div>
+          <br />
+          <Input
+            className="large-input"
+            value={value}
+            onChange={(e) => setValue(e.target.value)}
+            onPressEnter={handleEnter}
+            placeholder="Type your question..."
+            size="large"
+          />
+          {loading && (
+            <div style={{ marginTop: 50 }}>
+              <Spin /> <span>Deep thinking...</span>
+            </div>
+          )}
+          <Modal
+            open={!!response}
+            onCancel={handleModalClose}
+            onOk={handleModalClose}
+            title="Response"
+            footer={null}
+          >
+            <p>{response}</p>
+          </Modal>
         </div>
-      )}
-      <Modal
-        open={!!response}
-        onCancel={handleModalClose}
-        onOk={handleModalClose}
-        title="Response"
-        footer={null}
-      >
-        <p>{response}</p>
-      </Modal>
+      </div>
+      <footer style={{ marginTop: 'auto', textAlign: 'center', color: '#888', padding: '16px 0' }}>
+        <span style={{ fontSize: '12px' }}> &copy;2025 Owoeye Samuel</span>
+      </footer>
     </div>
   )
 }
