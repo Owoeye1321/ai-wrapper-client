@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Input, Modal, Spin } from 'antd'
 import './entry.css' // For custom styles
 import { askAI } from '../api/ai-wapper.api'
@@ -25,6 +25,8 @@ const EntryPoint = () => {
     }
   }
   const handleModalClose = () => setResponse(null)
+
+  useEffect(() => {}, [])
 
   return (
     <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
